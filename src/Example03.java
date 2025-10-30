@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 // 스트림 (반복되는 객체(리스트, 배열) -> 일괄 처리
 // 배열, 리스트 -> Stream -> ...
@@ -75,5 +73,10 @@ public class Example03 {
                 .filter((o) -> o >= 50)
                 .map((o) -> o * 2)
                 .forEach(System.out::println);
+        System.out.println(
+                // Optional (빈 stream일 수도 있어서.. null)
+                list.stream().max(Integer::compareTo) // Optional (검사)
+                        .orElseThrow() // null이면 throw
+        );
     }
 }
